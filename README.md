@@ -34,7 +34,9 @@ docker compose up -d
 
 ### Access the container / コンテナへのアクセス
 
+```bash
 docker compose exec java bash
+```
 
 ### Compile and run the Java application / Javaアプリケーションのコンパイルと実行
 
