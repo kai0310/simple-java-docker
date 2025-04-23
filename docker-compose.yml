@@ -2,19 +2,11 @@ version: '3.9'
 services:
   java:
     build: ./docker/java
-    container_name: java-application
+    container_name: java-app
     ports:
       - 8080:8080
     environment:
-      - JAVA_OPTS=-Xmx512m -Xms256m
-      - SPRING_PROFILES_ACTIVE=dev
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    tty: true
+      - JAVA_OPTS=-Xmx512m
     volumes:
       - ./server/src:/usr/src:cached
-      - ./server/.m2:/root/.m2:cached
     restart: unless-stopped
